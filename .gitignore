@@ -45,3 +45,6 @@ yarn-error.*
 server/.env
 server/.vercel
 /android
+.vercel
+.env*
+!.env.example
