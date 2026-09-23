@@ -2,8 +2,9 @@
 // Without Redis configured, quotas are not enforced (fine for local dev,
 // not for production — anyone could run up your Claude bill).
 
-const REDIS_URL = process.env.UPSTASH_REDIS_REST_URL;
-const REDIS_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN;
+// The Vercel Marketplace integration names these KV_REST_API_*.
+const REDIS_URL = process.env.UPSTASH_REDIS_REST_URL ?? process.env.KV_REST_API_URL;
+const REDIS_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN ?? process.env.KV_REST_API_TOKEN;
 
 export const LIMITS = {
   free: Number(process.env.FREE_RUNS_PER_MONTH ?? 20),
